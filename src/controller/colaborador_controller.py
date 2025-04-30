@@ -86,6 +86,3 @@ def login():
     
     if email == colaborador.get('email') and checar_senha(senha, colaborador.get('senha')):
         return jsonify({'mensagem': 'Login realizado com sucesso'}), 200
-    
-
-    
