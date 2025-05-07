@@ -5,6 +5,23 @@ from src.controller.colaborador_controller import bp_colaborador
 from src.model import db
 from config import Config
 from flask_cors import CORS
+from flasgger import Swagger
+
+
+swagger_config = {
+    "headers": [],
+    "specs": [
+        {
+            "endpoint": "apispec",
+            "route": "/apispec.json/",
+            "rule_filter": lambda rule: True, # < Indica que todas a rotas vão estar na documentação
+            "model_filter": lambda tag: True,
+        }
+    ],
+    "static_url_path": "/flasgger_static",
+    "swagger_ui": True,
+    "specs_route": "/apidocs/"
+}
 
 def create_app():
     app = Flask(__name__)
@@ -17,4 +34,5 @@ def create_app():
     with app.app_context():
         db.create_all()
     
+    Swagger(app, config=swagger_config)
     return app

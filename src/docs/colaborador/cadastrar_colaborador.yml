@@ -1,0 +1,42 @@
+tags:
+  - Colaborador 
+description: Endpoint (rota) relacionada a cadastrar um novo colaborador
+
+parameters:
+  - in: body
+    name: corpo
+    required: true 
+    
+    schema:
+      type: object
+      properties:
+        nome: 
+          type: string
+          example: teste da silva
+        email:
+          type: string
+          example: teste@gmail.com
+        senha:
+          type: string
+          example: senha123
+        cargo:
+          type: string
+          example: QA
+        salario:
+          type: number
+          example: 2500.78
+      required:
+        - nome
+        - email
+        - senha
+        - cargo
+        - salario
+
+responses:
+  201:
+    description: Colaborador cadastrado com sucesso
+
+
+
+
+        

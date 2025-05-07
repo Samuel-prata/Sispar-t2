@@ -20,7 +20,7 @@ class Reembolso(db.Model): #<-- Interpreta que essa classe vai ser o modelo para
     moeda = Column(String(20), nullable=False)
     distancia_km = Column(String(50))
     valor_km = Column(String(50))
-    valor_faturado = Column(DECIMAL(10,2), nullable=False)# <-- 12345 . 12
+    valor_faturado = Column(DECIMAL(10,2), nullable=False) # <-- 12345 . 12
     despesa = Column(DECIMAL(10,2))
     id_colaborador = Column(ForeignKey(column="colaborador.id"))
     status = Column(String(20), nullable=False)
