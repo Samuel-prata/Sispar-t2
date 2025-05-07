@@ -3,6 +3,7 @@ from flask import Blueprint, request, jsonify
 from src.model import db
 from src.model.colaborador_model import Colaborador
 from src.security.security import hash_senha, checar_senha
+from flasgger import swag_from
 
 # request = Trabalhar com as requisições
 # jsonify = Trabalha com as respostas -> 
@@ -21,7 +22,8 @@ def pegar_dados_todos_colaboradores():
     
     return jsonify(colaboradores), 200
 
-@bp_colaborador.route('/cadastrar', methods=['POST']) 
+@bp_colaborador.route('/cadastrar', methods=['POST'])
+@swag_from('../docs/colaborador/cadastrar_colaborador.yml') 
 def cadastrar_novo_colaborador():
     dados_requisicao = request.get_json()
     
